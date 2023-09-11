@@ -9,6 +9,10 @@ html {
 }
 
 .page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -16,10 +20,6 @@ html {
   font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   background-color: #1b1919;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 30px;
 }
 
 h1,
@@ -58,22 +58,20 @@ ol {
   align-items: end;
 }
 
-/* .result {} */
-
 .result__video-container {
+  block-size: 386px;
   margin-bottom: 16px;
-  height: 386px;
   position: relative;
 }
 
 .result__video {
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .search-form {
   display: grid;
-  grid-template-columns: 1fr 1fr 194px; 
+  grid-template-columns: 1fr repeat(2, min-content);
   gap: 40px;
   align-items: start;
 }
@@ -83,51 +81,49 @@ ol {
 }
 
 .search-form__fieldset-title {
+  margin-bottom: 5px;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  margin-bottom: 5px;
 }
 
 .search-form__label {
-  cursor: pointer;
   display: flex;
-  gap: 5px;
+  align-items: center;
+  cursor: pointer;
 }
 
-.search-form__label:has(.search-form__textfield:focus-visible) {
+.search-form__label:has(input:focus) {
+  outline: none;
+}
+
+.search-form__label:has(input:focus-visible) {
   outline: 1px solid #fff;
-    /*разобраться с focus-visible: 
-  с мышки нет обводки, а с таба есть, 
- */
 }
 
 .search-form__label:hover .search-form__label-text {
   text-decoration: underline;
 }
 
-/* .search-form__label-text {} */
-
 .search-form__textfield {
+  inline-size: 100%;
   appearance: none;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.70);
   font-family: 'Fira Sans Condensed';
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  width: 100%;
+  color: rgba(255, 255, 255, 0.70);
   border-top: 1px solid rgba(255, 255, 255, 0.70);
   border-bottom: 1px solid rgba(255, 255, 255, 0.70);
   border-left: none;
   border-right: none;
+  background: transparent;
 }
 
 .search-form__textfield:focus {
-  outline: none;    
-  /*разобраться с focus*/
+  outline: none;   
 }
 
 .search-form__checkbox-list {
@@ -135,37 +131,35 @@ ol {
   gap: 15px;
 }
 
-/* .search-form__checkbox {} */
-
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   content: '';
+  inline-size: 15px;
+  block-size: 15px;
   background: #fff; 
-  width: 15px;
-  height: 15px;
-  display: block;
 }
 
 .search-form__pseudo-checkbox {
-  border: 1px solid #fff;
-  background: transparent;
-  width: 19px;
-  height: 19px;
   display: flex;
   justify-content: center;
   align-items: center;
+  inline-size: 19px;
+  block-size: 19px;
+  margin-right: 5px;
+  border: 1px solid #fff;
+  background: transparent;
 }
 
 .button {
-  border: 1px solid #fff;
-  background: transparent;
-  color: #fff;
+  padding: 6px 0;
   font-family: 'Fira Sans Condensed';
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  color: #fff;
   cursor: pointer;
-  padding: 6px 0;
+  border: 1px solid #fff;
+  background: transparent;
 }
 
 .button:hover {
@@ -178,27 +172,25 @@ ol {
 } 
 
 .button:focus {
-  outline: none;  /*Состояние :focus должно быть сброшено. */
+  outline: none;
 } 
 
 .button:focus-visible {
   outline: 1px solid #fff;
-  /*разобраться с focus-visible */
 }
 
 .search-form__submit-button {
+  inline-size: 194px;
   align-self: end;
 }
 
 .content__details {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-rows: min-content 1fr;
-  gap: 26px;
+  inline-size: 100%;
+  block-size: 100%;
 }
 
 .title {
+  margin-bottom: 26px;
   font-family: Oswald;
   font-size: 75px;
   font-style: normal;
@@ -212,35 +204,23 @@ ol {
 }
 
 .content__list {
-  height: 296px;
-  overflow: hidden scroll;
-  display: flex;
+  display: flex;   
   flex-direction: column;
   gap: 30px;
   position: relative;
-}
+  block-size: 296px;
+  overflow: hidden scroll;
+} 
 
 .content__list::-webkit-scrollbar {
-  width: 0;
+  inline-size: 0;
 }
 
-/* .preloader-template {}
-
-.preloader {}
-
-.preloader-chasing-squares {}
-
-.square {}
-
-.cards-list-item-template {}
-
-.content__list-item {} */
-
 .content__card-link {
-  text-decoration: none;
-  color: inherit;
   display: block;
   margin: 2px;
+  color: inherit;
+  text-decoration: none;
 }
 
 .content__card-link:hover {
@@ -253,12 +233,11 @@ ol {
 }
 
 .content__card-link:focus {
-  outline: none; /*Состояние :focus должно быть сброшено. */
+  outline: none;
 }
 
 .content__card-link:focus-visible {
   outline: 1px solid #fff;
-  /*разобраться с focus-visible */
 }
 
 .content__card-link_current {
@@ -277,37 +256,29 @@ ol {
 }
 
 .content__video-card-title {
+  margin-bottom: 6px;
   font-family: Oswald;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
   line-height: 100%;
   text-transform: uppercase;
-  margin-bottom: 6px;
 }
 
 .content__video-card-description {
-  color: #fff;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 16.2px;
+  color: #fff;
 }
 
 .content__video-card-thumbnail {
-  width: 194px;
-  height: 103px;
-
+  inline-size: 194px;
+  block-size: 103px;
+  object-fit: cover;
 }
-
-/* .more-button-template {} */
 
 .more-button {
-  width: 100%;
+  inline-size: 100%;
 }
-
-/* .error-template {}
-
-.error {}
-
-.error__title {} */
