@@ -52,14 +52,14 @@ ol {
 } 
 
 .content {
-  display: grid;
-  grid-template-columns: 711px 399px;
+  display: flex;
   gap: 30px;
   align-items: end;
 }
 
 .result__video-container {
   block-size: 386px;
+  inline-size: 711px;
   margin-bottom: 16px;
   position: relative;
 }
@@ -67,6 +67,7 @@ ol {
 .result__video {
   inline-size: 100%;
   block-size: 100%;
+  object-fit: contain;
 }
 
 .search-form {
@@ -109,14 +110,14 @@ ol {
 .search-form__textfield {
   inline-size: 100%;
   appearance: none;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  color: rgba(255, 255, 255, 0.70);
-  border-top: 1px solid rgba(255, 255, 255, 0.70);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.70);
+  color: #fff;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   border-left: none;
   border-right: none;
   background: transparent;
@@ -151,14 +152,14 @@ ol {
 
 .button {
   padding: 6px 0;
-  font-family: 'Fira Sans Condensed';
+  font-family: 'Fira Sans Condensed', sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
   color: #fff;
   cursor: pointer;
-  border: 1px solid #fff;
+  border: 1px solid currentColor;
   background: transparent;
 }
 
@@ -191,7 +192,7 @@ ol {
 
 .title {
   margin-bottom: 26px;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   font-style: normal;
   font-weight: 700;
@@ -209,12 +210,8 @@ ol {
   gap: 30px;
   position: relative;
   block-size: 296px;
-  overflow: hidden scroll;
+  overflow: auto;
 } 
-
-.content__list::-webkit-scrollbar {
-  inline-size: 0;
-}
 
 .content__card-link {
   display: block;
@@ -245,19 +242,14 @@ ol {
 }
 
 .content__video-card {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: start;
+  display: flex;
+  justify-content: space-between;
   padding: 2px;
-}
-
-.content__video-card-description-container {
-  hyphens: auto;
 }
 
 .content__video-card-title {
   margin-bottom: 6px;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-style: normal;
   font-weight: 700;
@@ -269,14 +261,16 @@ ol {
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
-  line-height: 16.2px;
+  line-height: 90%;
   color: #fff;
 }
 
 .content__video-card-thumbnail {
-  inline-size: 194px;
+  max-width: 194px;
   block-size: 103px;
   object-fit: cover;
+  object-position: right top;
+  flex-shrink: 1;
 }
 
 .more-button {
