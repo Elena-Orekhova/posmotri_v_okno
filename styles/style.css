@@ -55,6 +55,7 @@ ol {
   display: flex;
   gap: 30px;
   align-items: end;
+  inline-size: 1140px;
 }
 
 .result__video-container {
@@ -67,7 +68,7 @@ ol {
 .result__video {
   inline-size: 100%;
   block-size: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .search-form {
